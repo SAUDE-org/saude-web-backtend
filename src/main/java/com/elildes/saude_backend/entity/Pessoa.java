@@ -28,7 +28,16 @@ public class Pessoa {
     @Column(name = "endereco")
     private String endereco;
 
-    public Pessoa(){}
+    public Pessoa(){}    
+
+    public Pessoa(Long id_pessoa, String nome, String cpf, String email, String telefone, String endereco) {
+        this.id_pessoa = id_pessoa;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
 
     public Long getId_pessoa() {
         return id_pessoa;
