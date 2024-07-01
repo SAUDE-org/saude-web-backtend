@@ -13,13 +13,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ID")
     @SequenceGenerator(name = "SEQ_ID", sequenceName = "users_id_seq")
-    @Column(name = "id_user")
+    @Column(name = "id_user", nullable = false, unique = true)
     private Long id_user;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @Column(name = "password", nullable = false)
