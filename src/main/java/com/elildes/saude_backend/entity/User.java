@@ -14,9 +14,6 @@ public class User {
     @Column(name = "id_user", nullable = false, unique = true)
     private Long id_user;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
@@ -25,9 +22,8 @@ public class User {
 
     public User(){};
 
-    public User(Long id_user, String name, String username, String password) {
+    public User(Long id_user, String username, String password) {
         this.id_user = id_user;
-        this.name = name;
         this.username = username;
         this.password = password;
     }
@@ -38,14 +34,6 @@ public class User {
 
     public void setId_user(Long id_user) {
         this.id_user = id_user;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUsername() {
@@ -69,7 +57,6 @@ public class User {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id_user == null) ? 0 : id_user.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((username == null) ? 0 : username.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         return result;
@@ -89,11 +76,6 @@ public class User {
                 return false;
         } else if (!id_user.equals(other.id_user))
             return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
         if (username == null) {
             if (other.username != null)
                 return false;
@@ -109,9 +91,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id_user=" + id_user + ", name=" + name + ", username=" + username + ", password=" + password
-                + ", getId_user()=" + getId_user() + ", getName()=" + getName() + ", getUsername()=" + getUsername()
-                + ", getPassword()=" + getPassword() + "]";
-    }   
+        return "User [id_user=" + id_user + ", username=" + username + ", password=" + password + ", getId_user()="
+                + getId_user() + ", getUsername()=" + getUsername() + ", getPassword()=" + getPassword()
+                + ", hashCode()=" + hashCode() + ", getClass()=" + getClass() + ", toString()=" + super.toString()
+                + "]";
+    }    
+
     
 }
