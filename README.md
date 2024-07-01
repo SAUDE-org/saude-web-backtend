@@ -2,6 +2,8 @@
 
 ### Rodar a aplicação
 
+No Vs Code:  
+
 1 - Clonar o repositório `git clone https://github.com/SAUDE-org/saude-web-backtend.git`
 
 2 - Rodar `mvn clean install` para instalar as dependências
