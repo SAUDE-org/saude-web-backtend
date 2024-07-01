@@ -1,17 +1,31 @@
 package com.elildes.saude_backend.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity(name = "clinica")
 public class Clinica {
     
+    @Id
+    @GeneratedValue
+    @Column(name = "id_clinica", nullable = false, unique = true)
     private Long id_clinica;
 
+    @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "cnpj", nullable = false, length = 14)
     private String cnpj;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "telefone")
     private String telefone;
 
+    @Column(name = "endereco")
     private String endereco;
 
     public Clinica(){};

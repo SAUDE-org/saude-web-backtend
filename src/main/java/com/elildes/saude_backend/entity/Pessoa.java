@@ -16,7 +16,7 @@ public class Pessoa {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "cpf", nullable = false)
+    @Column(name = "cpf", nullable = false, length = 11)
     private String cpf;
 
     @Column(name = "email")
