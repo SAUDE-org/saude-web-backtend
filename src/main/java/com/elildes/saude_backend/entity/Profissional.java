@@ -2,6 +2,8 @@ package com.elildes.saude_backend.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
@@ -15,6 +17,10 @@ public class Profissional extends Pessoa {
 
     @Column(name = "registro_pro", nullable = false, unique = true)
     private String registro_pro;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "especialidade")
+    private Especialidade especialidade;
 
     public Profissional(){};
 
