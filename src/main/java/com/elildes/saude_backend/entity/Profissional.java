@@ -14,7 +14,7 @@ public class Profissional extends Pessoa {
     // @Id
     // @GeneratedValue(strategy = GenerationType.AUTO)
     // @Column(name = "id_profissional", nullable = false, unique = true)
-    // private String id_profissional;
+    // private Long id_profissional;
 
     // @Column(name = "registro_pro", nullable = false, unique = true)
     // private String registro_pro;
