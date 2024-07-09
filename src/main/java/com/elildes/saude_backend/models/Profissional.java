@@ -12,7 +12,7 @@ import javax.persistence.SequenceGenerator;
 import com.elildes.saude_backend.models.enums.Especialidade;
 
 @Entity(name = "profissional")
-public class Profissional extends Pessoa {
+public class Profissional {
     
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pro_seq")
