@@ -1,4 +1,4 @@
-package com.elildes.saude_backend.entity;
+package com.elildes.saude_backend.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,20 +7,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 
-@Entity(name = "clinica")
-public class Clinica {
+@Entity(name = "pessoa")
+public class Pessoa {
     
     @Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="clinica_seq")
-	@SequenceGenerator(name="clinica_seq", sequenceName="clinica_seq", allocationSize=1)
-    @Column(name = "id_clinica", nullable = false, unique = true)
-    private Long id_clinica;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pessoa_seq")
+	@SequenceGenerator(name="pessoa_seq", sequenceName="pessoa_seq", allocationSize=1)
+    @Column(name = "id_pessoa", nullable = false, unique = true)
+    private Long id_pessoa;
 
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "cnpj", nullable = false, length = 14)
-    private String cnpj;
+    @Column(name = "cpf", nullable = false, length = 11)
+    private String cpf;
 
     @Column(name = "email")
     private String email;
@@ -31,23 +31,23 @@ public class Clinica {
     @Column(name = "endereco")
     private String endereco;
 
-    public Clinica(){};
+    public Pessoa(){}    
 
-    public Clinica(Long id_clinica, String nome, String cnpj, String email, String telefone, String endereco) {
-        this.id_clinica = id_clinica;
+    public Pessoa(Long id_pessoa, String nome, String cpf, String email, String telefone, String endereco) {
+        this.id_pessoa = id_pessoa;
         this.nome = nome;
-        this.cnpj = cnpj;
+        this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
     }
 
-    public Long getId_clinica() {
-        return id_clinica;
+    public Long getId_pessoa() {
+        return id_pessoa;
     }
 
-    public void setId_clinica(Long id_clinica) {
-        this.id_clinica = id_clinica;
+    public void setId_pessoa(Long id_pessoa) {
+        this.id_pessoa = id_pessoa;
     }
 
     public String getNome() {
@@ -58,12 +58,12 @@ public class Clinica {
         this.nome = nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -94,9 +94,9 @@ public class Clinica {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id_clinica == null) ? 0 : id_clinica.hashCode());
+        result = prime * result + ((id_pessoa == null) ? 0 : id_pessoa.hashCode());
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
+        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
         result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
@@ -111,21 +111,21 @@ public class Clinica {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Clinica other = (Clinica) obj;
-        if (id_clinica == null) {
-            if (other.id_clinica != null)
+        Pessoa other = (Pessoa) obj;
+        if (id_pessoa == null) {
+            if (other.id_pessoa != null)
                 return false;
-        } else if (!id_clinica.equals(other.id_clinica))
+        } else if (!id_pessoa.equals(other.id_pessoa))
             return false;
         if (nome == null) {
             if (other.nome != null)
                 return false;
         } else if (!nome.equals(other.nome))
             return false;
-        if (cnpj == null) {
-            if (other.cnpj != null)
+        if (cpf == null) {
+            if (other.cpf != null)
                 return false;
-        } else if (!cnpj.equals(other.cnpj))
+        } else if (!cpf.equals(other.cpf))
             return false;
         if (email == null) {
             if (other.email != null)
@@ -147,11 +147,11 @@ public class Clinica {
 
     @Override
     public String toString() {
-        return "Clinica [id_clinica=" + id_clinica + ", nome=" + nome + ", cnpj=" + cnpj + ", email=" + email
-                + ", telefone=" + telefone + ", endereco=" + endereco + ", getId_clinica()=" + getId_clinica()
-                + ", getNome()=" + getNome() + ", getCnpj()=" + getCnpj() + ", getEmail()=" + getEmail()
-                + ", getTelefone()=" + getTelefone() + ", getEndereco()=" + getEndereco() + ", getClass()=" + getClass()
-                + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-    }
+        return "Pessoa [id_pessoa=" + id_pessoa + ", nome=" + nome + ", cpf=" + cpf + ", email=" + email + ", telefone="
+                + telefone + ", endereco=" + endereco + ", getId_pessoa()=" + getId_pessoa() + ", getNome()="
+                + getNome() + ", getCpf()=" + getCpf() + ", getEmail()=" + getEmail() + ", getTelefone()="
+                + getTelefone() + ", getEndereco()=" + getEndereco() + ", hashCode()=" + hashCode() + ", getClass()="
+                + getClass() + ", toString()=" + super.toString() + "]";
+    };
 
 }

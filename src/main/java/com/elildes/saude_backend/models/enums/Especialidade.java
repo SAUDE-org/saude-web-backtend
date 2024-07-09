@@ -1,4 +1,4 @@
-package com.elildes.saude_backend.entity.enums;
+package com.elildes.saude_backend.models.enums;
 
 public enum Especialidade {
     ENFERMAGEM,

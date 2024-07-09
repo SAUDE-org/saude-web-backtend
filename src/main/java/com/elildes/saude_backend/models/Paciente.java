@@ -1,4 +1,4 @@
-package com.elildes.saude_backend.entity;
+package com.elildes.saude_backend.models;
 
 // import jakarta.persistence.Column;
 // import jakarta.persistence.Entity;
