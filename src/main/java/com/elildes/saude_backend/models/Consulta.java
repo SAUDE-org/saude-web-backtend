@@ -32,10 +32,9 @@ public class Consulta {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    // @ManyToOne
-    // @JoinColumn(name = "profissional_id")
-    // @Column(name = "profissional")
-    // private Profissional profissional;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profissional_id")
+    private Profissional profissional;
 
     // @Column(name = "clinica")
     // private Clinica clinica;
@@ -71,6 +70,15 @@ public class Consulta {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
+
+    public Profissional getProfissional() {
+        return profissional;
+    }
+
+    public void setProfissional(Profissional profissional) {
+        this.profissional = profissional;
+    }
+
     
     // hash_code
 

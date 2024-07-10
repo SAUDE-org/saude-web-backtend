@@ -1,8 +1,11 @@
 package com.elildes.saude_backend.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -46,22 +49,8 @@ public class Profissional {
     @Column(name = "especialidade")
     private Especialidade especialidade;
 
-    //@OneToMany(mappedBy = "profissional")
-    //private List<Consulta> consultas = new ArrayList<>();
-
-    public Profissional(){}    
-
-    public Profissional(Long id_profissional, String nome, String cpf, String email, String telefone, String endereco,
-            String registro_pro, Especialidade especialidade) {
-        this.id_profissional = id_profissional;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.registro_pro = registro_pro;
-        this.especialidade = especialidade;
-    }
+    @OneToMany(mappedBy = "profissional", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Consulta> consultas = new HashSet<>();
 
     public Long getId_profissional() {
         return id_profissional;
@@ -127,85 +116,23 @@ public class Profissional {
         this.especialidade = especialidade;
     }
 
-    // public List<Consulta> getConsultas() {
-    //     return consultas;
-    // }
-
-    // public void setConsultas(List<Consulta> consultas) {
-    //     this.consultas = consultas;
-    // }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id_profissional == null) ? 0 : id_profissional.hashCode());
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
-        result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
-        result = prime * result + ((registro_pro == null) ? 0 : registro_pro.hashCode());
-        result = prime * result + ((especialidade == null) ? 0 : especialidade.hashCode());
-        return result;
+    public Set<Consulta> getConsultas() {
+        return consultas;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Profissional other = (Profissional) obj;
-        if (id_profissional == null) {
-            if (other.id_profissional != null)
-                return false;
-        } else if (!id_profissional.equals(other.id_profissional))
-            return false;
-        if (nome == null) {
-            if (other.nome != null)
-                return false;
-        } else if (!nome.equals(other.nome))
-            return false;
-        if (cpf == null) {
-            if (other.cpf != null)
-                return false;
-        } else if (!cpf.equals(other.cpf))
-            return false;
-        if (email == null) {
-            if (other.email != null)
-                return false;
-        } else if (!email.equals(other.email))
-            return false;
-        if (telefone == null) {
-            if (other.telefone != null)
-                return false;
-        } else if (!telefone.equals(other.telefone))
-            return false;
-        if (endereco == null) {
-            if (other.endereco != null)
-                return false;
-        } else if (!endereco.equals(other.endereco))
-            return false;
-        if (registro_pro == null) {
-            if (other.registro_pro != null)
-                return false;
-        } else if (!registro_pro.equals(other.registro_pro))
-            return false;
-        if (especialidade != other.especialidade)
-            return false;
-        return true;
+    public void setConsultas(Set<Consulta> consultas) {
+        this.consultas = consultas;
     }
 
-    @Override
-    public String toString() {
-        return "Profissional [id_profissional=" + id_profissional + ", nome=" + nome + ", cpf=" + cpf + ", email="
-                + email + ", telefone=" + telefone + ", endereco=" + endereco + ", registro_pro=" + registro_pro
-                + ", especialidade=" + especialidade + "]";
-    };
+    // Métodos adicionais para adicionar e remover consultas
+    public void addConsulta(Consulta consulta) {
+        consultas.add(consulta);
+        consulta.setProfissional(this);
+    }
 
-    
+    public void removeConsulta(Consulta consulta) {
+        consultas.remove(consulta);
+        consulta.setProfissional(null);
+    }
 
 }
