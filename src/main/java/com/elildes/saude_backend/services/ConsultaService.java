@@ -1,7 +1,11 @@
 package com.elildes.saude_backend.services;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
+import com.elildes.saude_backend.models.Consulta;
 import com.elildes.saude_backend.repositories.ConsultaRepository;
 
 @Service
@@ -13,6 +17,11 @@ public class ConsultaService {
         this.consultaRepository = consultaRepository;
     }
 
-    
+    // buscar a consulta com a data mais próxima
+    public Optional<Consulta> findNextConsulta() {
+        LocalDate today = LocalDate.now();
+        return consultaRepository.findNextConsulta(today);
+    }
+
     
 }
