@@ -1,11 +1,17 @@
 package com.elildes.saude_backend.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
+
 
 @Entity(name = "clinica")
 public class Clinica {
@@ -31,16 +37,8 @@ public class Clinica {
     @Column(name = "endereco")
     private String endereco;
 
-    public Clinica(){};
-
-    public Clinica(Long id_clinica, String nome, String cnpj, String email, String telefone, String endereco) {
-        this.id_clinica = id_clinica;
-        this.nome = nome;
-        this.cnpj = cnpj;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-    }
+    @OneToMany(mappedBy = "clinica", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Consulta> consultas;
 
     public Long getId_clinica() {
         return id_clinica;
@@ -90,68 +88,14 @@ public class Clinica {
         this.endereco = endereco;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id_clinica == null) ? 0 : id_clinica.hashCode());
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
-        result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
-        return result;
+    public List<Consulta> getConsultas() {
+        return consultas;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Clinica other = (Clinica) obj;
-        if (id_clinica == null) {
-            if (other.id_clinica != null)
-                return false;
-        } else if (!id_clinica.equals(other.id_clinica))
-            return false;
-        if (nome == null) {
-            if (other.nome != null)
-                return false;
-        } else if (!nome.equals(other.nome))
-            return false;
-        if (cnpj == null) {
-            if (other.cnpj != null)
-                return false;
-        } else if (!cnpj.equals(other.cnpj))
-            return false;
-        if (email == null) {
-            if (other.email != null)
-                return false;
-        } else if (!email.equals(other.email))
-            return false;
-        if (telefone == null) {
-            if (other.telefone != null)
-                return false;
-        } else if (!telefone.equals(other.telefone))
-            return false;
-        if (endereco == null) {
-            if (other.endereco != null)
-                return false;
-        } else if (!endereco.equals(other.endereco))
-            return false;
-        return true;
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
     }
 
-    @Override
-    public String toString() {
-        return "Clinica [id_clinica=" + id_clinica + ", nome=" + nome + ", cnpj=" + cnpj + ", email=" + email
-                + ", telefone=" + telefone + ", endereco=" + endereco + ", getId_clinica()=" + getId_clinica()
-                + ", getNome()=" + getNome() + ", getCnpj()=" + getCnpj() + ", getEmail()=" + getEmail()
-                + ", getTelefone()=" + getTelefone() + ", getEndereco()=" + getEndereco() + ", getClass()=" + getClass()
-                + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-    }
+    
 
 }
