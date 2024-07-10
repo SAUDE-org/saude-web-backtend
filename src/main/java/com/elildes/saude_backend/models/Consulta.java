@@ -79,12 +79,4 @@ public class Consulta {
         this.profissional = profissional;
     }
 
-    
-    // hash_code
-
-    //to_string
-
-    
-    
-
 }
