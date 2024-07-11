@@ -3,6 +3,8 @@ package com.elildes.saude_backend.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,4 +32,11 @@ public class ConsultaController {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
+
+    @PostMapping("/inserir")
+    public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
+        Consulta novaConsulta = consultaService.salvarConsulta(consulta);
+        return ResponseEntity.ok(novaConsulta);
+    }
+
 }

@@ -23,5 +23,10 @@ public class ConsultaService {
         return consultaRepository.findNextConsulta(today);
     }
 
+    // salvar consulta
+    public Consulta salvarConsulta(Consulta consulta) {
+        return consultaRepository.save(consulta);
+    }
+
     
 }
