@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "ba1ac8af-4411-49c4-992c-6017a3897b9c",
+		"name": "Saude-web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18527582",
+		"_collection_link": "https://elildes-imd-ufrn.postman.co/workspace/IMD-UFRN-WEB2~bfc761d5-4d7f-41a9-ba31-c5257a2725dc/collection/18527582-ba1ac8af-4411-49c4-992c-6017a3897b9c?action=share&source=collection_link&creator=18527582"
+	},
+	"item": [
+		{
+			"name": "Consulta FindNext",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/consulta/find-next",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consulta",
+						"find-next"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paciente Find",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paciente/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paciente",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paciente Find{cpf}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paciente/cpf/88888888888",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paciente",
+						"cpf",
+						"88888888888"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paciente Find{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paciente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paciente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/consulta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consulta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta Inserir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": \"2024/08/22\",\r\n    \"horario\": \"11:30:00\",\r\n    \"clinica_id\": 1,\r\n    \"paciente_id\": 1,\r\n    \"profissional_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/consulta/inserir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consulta",
+						"inserir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paciente Inserir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"88888888888\",\r\n    \"email\": \"joao@email.com\",\r\n    \"endereco\": \"R. Pe Anchieta, Capim Macio, Natal, RN\",\r\n    \"nome\": \"João Maria de José\",\r\n    \"telefone\": \"(84)88888-7777\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/paciente/inserir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paciente",
+						"inserir"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
