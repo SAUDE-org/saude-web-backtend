@@ -1,7 +1,11 @@
 package com.elildes.saude_backend.controllers;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +29,17 @@ public class ProfissionalController {
     public ResponseEntity<Profissional> inserirProfissional(@RequestBody Profissional profissional) {
         Profissional novoProfissional = profissionalService.salvarProfissional(profissional);
         return ResponseEntity.ok(novoProfissional);
+    }
+
+    @GetMapping("/todos")
+    public ResponseEntity<List<Profissional>> getTodosProfissionais() {
+        List<Profissional> profissionais = profissionalService.buscarTodosProfissionais();
+
+        if(profissionais.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.ok(profissionais);
+        }
     }
 
 
