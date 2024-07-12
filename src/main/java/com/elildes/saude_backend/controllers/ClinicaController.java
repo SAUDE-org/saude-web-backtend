@@ -51,5 +51,12 @@ public class ClinicaController {
                       .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Clinica> getClinicaPorId(@PathVariable Long id) {
+        Optional<Clinica> clinica = clinicaService.buscarClinicaPorId(id);
+        return clinica.map(ResponseEntity::ok)
+                      .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
 
 }
