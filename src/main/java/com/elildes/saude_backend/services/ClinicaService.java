@@ -32,5 +32,10 @@ public class ClinicaService {
         return clinicaRepository.findByCnpj(cnpj);
     }
 
+    // buscar clínica por id
+    public Optional<Clinica> buscarClinicaPorId(Long id) {
+        return clinicaRepository.findById(id);
+    }
+
 
 }
