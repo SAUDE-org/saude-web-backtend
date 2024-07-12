@@ -1,9 +1,13 @@
 package com.elildes.saude_backend.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.elildes.saude_backend.models.Paciente;
 import com.elildes.saude_backend.repositories.PacienteRepository;
+
+
 
 @Service
 public class PacienteService {
@@ -19,4 +23,9 @@ public class PacienteService {
         return pacienteRepository.save(paciente);
     }
     
+    // buscar todos pacientes
+    public List<Paciente> buscarTodosPacientes() {
+        return pacienteRepository.findAll();
+    }
+
 }
