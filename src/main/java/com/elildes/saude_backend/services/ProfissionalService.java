@@ -32,5 +32,10 @@ public class ProfissionalService {
         return profissionalRepository.findByCpf(cpf);
     }
 
+    // buscar profissioanl por id
+    public Optional<Profissional> buscarProfissionalPorId(Long id) {
+        return profissionalRepository.findById(id);
+    }
+
 
 }
