@@ -1,6 +1,7 @@
 package com.elildes.saude_backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class ProfissionalService {
     // buscar todos profissiionais
     public List<Profissional> buscarTodosProfissionais() {
         return profissionalRepository.findAll();
+    }
+
+    // buscar profissioanl por cpf
+    public Optional<Profissional> buscarProfissionalPorCpf(String cpf) {
+        return profissionalRepository.findByCpf(cpf);
     }
 
 
