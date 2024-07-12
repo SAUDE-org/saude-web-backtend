@@ -1,6 +1,7 @@
 package com.elildes.saude_backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class ClinicaService {
     // buscar todas clínicas
     public List<Clinica> buscarTodasClinicas() {
         return clinicaRepository.findAll();
+    }
+
+    // buscar clínica por cnpj
+    public Optional<Clinica> buscarClinicaPorCnpj(String cnpj) {
+        return clinicaRepository.findByCnpj(cnpj);
     }
 
 
