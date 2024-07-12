@@ -51,5 +51,11 @@ public class ProfissionalController {
                            .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Profissional> getProfissionalPorId(@PathVariable Long id) {
+        Optional<Profissional> profissional = profissionalService.buscarProfissionalPorId(id);
+        return profissional.map(ResponseEntity::ok)
+                           .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+    
 }
