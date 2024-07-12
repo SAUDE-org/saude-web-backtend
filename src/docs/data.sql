@@ -1,6 +1,6 @@
 INSERT INTO public.profissional(
 	id_profissional, cpf, email, endereco, especialidade, nome, registro_pro, telefone)
-	VALUES (1, "99999999999", "ana@gmail.com", "R. Alta, 45, Alecrim, Natal, RN", "Nutricionista", "Ana Maria Braga", "CRN6-99990", "(84)99999-8888");
+	VALUES (1, "66666666666", "ana@gmail.com", "R. Alta, 45, Alecrim, Natal, RN", "Nutricionista", "Ana Maria Braga", "CRN6-99990", "(84)99999-8888");
 
 INSERT INTO public.paciente(
 	id_paciente, cpf, email, endereco, nome, telefone)
