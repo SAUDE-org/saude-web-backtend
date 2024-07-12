@@ -1,7 +1,11 @@
 package com.elildes.saude_backend.controllers;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +31,15 @@ public class PacienteController {
         return ResponseEntity.ok(novoPaciente);
     }
 
+    @GetMapping("/todos")
+    public ResponseEntity<List<Paciente>> getTodosPacientes() {
+        List<Paciente> pacientes = pacienteService.buscarTodosPacientes();
+
+        if (pacientes.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.ok(pacientes);
+        }
+    }
 
 }
