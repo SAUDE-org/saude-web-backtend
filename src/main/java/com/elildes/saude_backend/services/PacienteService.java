@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.elildes.saude_backend.models.Paciente;
 import com.elildes.saude_backend.repositories.PacienteRepository;
 
-
-
 @Service
 public class PacienteService {
 
