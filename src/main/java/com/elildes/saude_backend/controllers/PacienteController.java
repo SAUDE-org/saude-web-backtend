@@ -51,4 +51,11 @@ public class PacienteController {
                        .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Paciente> getPacientePorId(@PathVariable Long id) {
+        Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
+        return paciente.map(ResponseEntity::ok)
+                       .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
 }
