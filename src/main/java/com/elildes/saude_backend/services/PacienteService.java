@@ -34,4 +34,9 @@ public class PacienteService {
         return pacienteRepository.findByCpf(cpf);
     }
 
+    // buscar paciente por id
+    public Optional<Paciente> buscarPacientePorId(Long id) {
+        return pacienteRepository.findById(id);
+    }
+
 }
