@@ -1,5 +1,7 @@
 package com.elildes.saude_backend.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.elildes.saude_backend.models.Clinica;
@@ -17,6 +19,11 @@ public class ClinicaService {
     // salvar clínica
     public Clinica salvarClinica(Clinica clinica) {
         return clinicaRepository.save(clinica);
+    }
+
+    // buscar todas clínicas
+    public List<Clinica> buscarTodasClinicas() {
+        return clinicaRepository.findAll();
     }
 
 
