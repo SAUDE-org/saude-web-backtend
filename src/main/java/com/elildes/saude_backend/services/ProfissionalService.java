@@ -1,5 +1,7 @@
 package com.elildes.saude_backend.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.elildes.saude_backend.models.Profissional;
@@ -17,6 +19,11 @@ public class ProfissionalService {
     // salvar profissional
     public Profissional salvarProfissional(Profissional profissional) {
         return profissionalRepository.save(profissional);
+    }
+
+    // buscar todos profissiionais
+    public List<Profissional> buscarTodosProfissionais() {
+        return profissionalRepository.findAll();
     }
 
 
