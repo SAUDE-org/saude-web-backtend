@@ -11,7 +11,7 @@ import com.elildes.saude_backend.models.Profissional;
 import com.elildes.saude_backend.services.ProfissionalService;
 
 @RestController
-@RequestMapping("/profissioanl")
+@RequestMapping("/profissional")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ProfissionalController {
 
