@@ -37,7 +37,7 @@ public class ConsultaController {
 
     @PostMapping("/inserir")
     public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
-        Consulta novaConsulta = consultaService.salvarConsulta(consulta);
+        Consulta novaConsulta = consultaService.salvarconsulta(consulta);
         return ResponseEntity.ok(novaConsulta);
     }
 
