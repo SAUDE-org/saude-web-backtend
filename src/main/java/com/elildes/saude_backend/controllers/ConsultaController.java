@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.elildes.saude_backend.models.Consulta;
+import com.elildes.saude_backend.models.Paciente;
 import com.elildes.saude_backend.services.ConsultaService;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,6 +27,23 @@ public class ConsultaController {
         this.consultaService = consultaService;
     }
 
+    @PostMapping("/inserir")
+    public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
+        Consulta novaConsulta = consultaService.salvarconsulta(consulta);
+        return ResponseEntity.ok(novaConsulta);
+    }
+
+    @GetMapping("/todas")
+    public ResponseEntity<List<Consulta>> getTodasConsultas() {
+        List<Consulta> consultas = consultaService.buscarTodasConsultas();
+
+        if (consultas.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.ok(consultas);
+        }
+    }
+
     @GetMapping("/find-next")
     public ResponseEntity<Consulta> findNextConsulta() {
         Optional<Consulta> nextConsulta = consultaService.findNextConsulta();
@@ -33,12 +52,6 @@ public class ConsultaController {
         } else {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
-    }
-
-    @PostMapping("/inserir")
-    public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
-        Consulta novaConsulta = consultaService.salvarconsulta(consulta);
-        return ResponseEntity.ok(novaConsulta);
     }
 
 }
