@@ -17,16 +17,15 @@ public class ConsultaService {
         this.consultaRepository = consultaRepository;
     }
 
+    // salvar consulta
+    public Consulta salvarconsulta(Consulta consulta) {
+        return consultaRepository.save(consulta);
+    }
+
     // buscar a consulta com a data mais próxima
     public Optional<Consulta> findNextConsulta() {
         LocalDate today = LocalDate.now();
         return consultaRepository.findNextConsulta(today);
     }
-
-    // salvar consulta
-    public Consulta salvarConsulta(Consulta consulta) {
-        return consultaRepository.save(consulta);
-    }
-
     
 }
