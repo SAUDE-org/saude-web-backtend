@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity(name = "consulta")
 public class Consulta {
     
@@ -23,6 +25,7 @@ public class Consulta {
     private Long id_consulta;
 
     @Column(name = "data")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate data;
 
     @Column(name = "horario")
