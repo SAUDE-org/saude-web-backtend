@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.elildes.saude_backend.models.Consulta;
-import com.elildes.saude_backend.models.Paciente;
 import com.elildes.saude_backend.services.ConsultaService;
 
 import java.util.List;

@@ -33,5 +33,8 @@ public class ConsultaService {
         LocalDate today = LocalDate.now();
         return consultaRepository.findNextConsulta(today);
     }
+
+    // buscarConsultaPor: id, paciente, profissional e clínica
+    // Testar: findNextConsulta(): nãoo retorna Unique
     
 }
