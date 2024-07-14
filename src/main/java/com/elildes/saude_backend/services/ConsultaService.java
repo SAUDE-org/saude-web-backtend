@@ -19,17 +19,27 @@ import com.elildes.saude_backend.repositories.ProfissionalRepository;
 @Service
 public class ConsultaService {
 
-    @Autowired
+    //@Autowired
     private ConsultaRepository consultaRepository;
 
-    @Autowired
+    //@Autowired
     private PacienteRepository pacienteRepository;
 
-    @Autowired
+    //@Autowired
     private ProfissionalRepository profissionalRepository;
 
-    @Autowired
+    //@Autowired
     private ClinicaRepository clinicaRepository;
+
+    
+
+    public ConsultaService(ConsultaRepository consultaRepository, PacienteRepository pacienteRepository,
+            ProfissionalRepository profissionalRepository, ClinicaRepository clinicaRepository) {
+        this.consultaRepository = consultaRepository;
+        this.pacienteRepository = pacienteRepository;
+        this.profissionalRepository = profissionalRepository;
+        this.clinicaRepository = clinicaRepository;
+    }
 
     // salvar consulta
     public Consulta salvarConsulta(Consulta consulta) {

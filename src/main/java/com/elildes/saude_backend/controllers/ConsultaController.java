@@ -35,32 +35,21 @@ public class ConsultaController {
     }
 
     @PostMapping("/inserir")
-    public ResponseEntity<Consulta> inserirConsulta(@RequestBody Map<String, Object> requestBody) {
+    public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
         try {
-            // Extrair os dados do requestBody
-            LocalDate data = LocalDate.parse((String) requestBody.get("data"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            LocalTime horario = LocalTime.parse((String) requestBody.get("horario"), DateTimeFormatter.ofPattern("HH:mm"));
-            Long pacienteId = requestBody.get("pacienteId") != null ? Long.parseLong((String) requestBody.get("pacienteId")) : null;
-            Long profissionalId = requestBody.get("profissionalId") != null ? Long.parseLong((String) requestBody.get("profissionalId")) : null;
-            Long clinicaId = requestBody.get("clinicaId") != null ? Long.parseLong((String) requestBody.get("clinicaId")) : null;
-
-            // Se pacienteId, profissionalId ou clinicaId forem nulos, a consulta será salva sem associação
-            Consulta consulta = new Consulta();
-            consulta.setData(data);
-            consulta.setHorario(horario);
-
-            if (pacienteId != null) {
-                Optional<Paciente> pacienteOpt = consultaService.buscarPacientePorId(pacienteId);
+            // Verificar se os IDs estão presentes e buscar os objetos relacionados
+            if (consulta.getPaciente() != null && consulta.getPaciente().getId_paciente() != null) {
+                Optional<Paciente> pacienteOpt = consultaService.buscarPacientePorId(consulta.getPaciente().getId_paciente());
                 pacienteOpt.ifPresent(consulta::setPaciente);
             }
 
-            if (profissionalId != null) {
-                Optional<Profissional> profissionalOpt = consultaService.buscarProfissionalPorId(profissionalId);
+            if (consulta.getProfissional() != null && consulta.getProfissional().getId_profissional() != null) {
+                Optional<Profissional> profissionalOpt = consultaService.buscarProfissionalPorId(consulta.getProfissional().getId_profissional());
                 profissionalOpt.ifPresent(consulta::setProfissional);
             }
 
-            if (clinicaId != null) {
-                Optional<Clinica> clinicaOpt = consultaService.buscarClinicaPorId(clinicaId);
+            if (consulta.getClinica() != null && consulta.getClinica().getId_clinica() != null) {
+                Optional<Clinica> clinicaOpt = consultaService.buscarClinicaPorId(consulta.getClinica().getId_clinica());
                 clinicaOpt.ifPresent(consulta::setClinica);
             }
 
@@ -68,7 +57,7 @@ public class ConsultaController {
             Consulta novaConsulta = consultaService.salvarConsulta(consulta);
             return ResponseEntity.ok(novaConsulta);
         } catch (DateTimeParseException | NumberFormatException e) {
-            // Caso ocorra algum erro de parsing ou conversão
+            // Caso ocorra algum erro
             return ResponseEntity.badRequest().build();
         }
     }  
