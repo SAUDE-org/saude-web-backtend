@@ -29,8 +29,12 @@ public class ProfissionalController {
 
     @PostMapping("/inserir")
     public ResponseEntity<Profissional> inserirProfissional(@RequestBody Profissional profissional) {
-        Profissional novoProfissional = profissionalService.salvarProfissional(profissional);
-        return ResponseEntity.ok(novoProfissional);
+        try {
+            Profissional novoProfissional = profissionalService.salvarProfissional(profissional);
+            return new ResponseEntity<>(novoProfissional, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/todos")

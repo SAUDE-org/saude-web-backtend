@@ -8,4 +8,5 @@ import com.elildes.saude_backend.models.Especialidade;
 @Repository
 public interface EspecialidadeRepository extends JpaRepository<Especialidade, Long> {
 
+    Especialidade findByNome(String nome);
 }
