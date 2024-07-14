@@ -14,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 @Entity(name = "consulta")
 public class Consulta {
@@ -28,24 +26,20 @@ public class Consulta {
 
     @Column(name = "data")
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate data;
 
     @Column(name = "horario")
     private LocalTime horario;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profissional_id")
     private Profissional profissional;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clinica_id")
     private Clinica clinica;
 

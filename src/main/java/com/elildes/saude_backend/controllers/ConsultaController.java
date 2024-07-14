@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.elildes.saude_backend.models.Clinica;
 import com.elildes.saude_backend.models.Consulta;
-import com.elildes.saude_backend.models.ConsultaRequest;
 import com.elildes.saude_backend.models.Paciente;
 import com.elildes.saude_backend.models.Profissional;
 import com.elildes.saude_backend.services.ConsultaService;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -30,36 +33,37 @@ public class ConsultaController {
         this.consultaService = consultaService;
     }
 
-    // @PostMapping("/inserir")
-    // public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
-    //     Consulta novaConsulta = consultaService.salvarconsulta(consulta);
-    //     return ResponseEntity.ok(novaConsulta);
-    // }
-
     @PostMapping("/inserir")
-    public ResponseEntity<Consulta> inserirConsulta(@RequestBody ConsultaRequest consultaRequest) {
+    public ResponseEntity<Consulta> inserirConsulta(@RequestBody Map<String, Object> requestBody) {
+        // Extrair os dados do requestBody
+        LocalDate data = LocalDate.parse((String) requestBody.get("data"), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalTime horario = LocalTime.parse((String) requestBody.get("horario"), DateTimeFormatter.ofPattern("HH:mm"));
+        Long pacienteId = Long.parseLong((String) requestBody.get("pacienteId"));
+        Long profissionalId = Long.parseLong((String) requestBody.get("profissionalId"));
+        Long clinicaId = Long.parseLong((String) requestBody.get("clinicaId"));
+
+        // Buscar entidades relacionadas
+        Optional<Paciente> pacienteOpt = consultaService.buscarPacientePorId(pacienteId);
+        Optional<Profissional> profissionalOpt = consultaService.buscarProfissionalPorId(profissionalId);
+        Optional<Clinica> clinicaOpt = consultaService.buscarClinicaPorId(clinicaId);
+
+        // Verificar se as entidades foram encontradas
+        if (!pacienteOpt.isPresent() || !profissionalOpt.isPresent() || !clinicaOpt.isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        // Criar a consulta com os dados recuperados
         Consulta consulta = new Consulta();
-        consulta.setData(consultaRequest.getData());
-        consulta.setHorario(consultaRequest.getHorario());
+        consulta.setData(data);
+        consulta.setHorario(horario);
+        consulta.setPaciente(pacienteOpt.get());
+        consulta.setProfissional(profissionalOpt.get());
+        consulta.setClinica(clinicaOpt.get());
 
-        if (consultaRequest.getPacienteId() != null) {
-            Optional<Paciente> pacienteOpt = consultaService.buscarPacientePorId(consultaRequest.getPacienteId());
-            pacienteOpt.ifPresent(consulta::setPaciente);
-        }
-
-        if (consultaRequest.getProfissionalId() != null) {
-            Optional<Profissional> profissionalOpt = consultaService.buscarProfissionalPorId(consultaRequest.getProfissionalId());
-            profissionalOpt.ifPresent(consulta::setProfissional);
-        }
-
-        if (consultaRequest.getClinicaId() != null) {
-            Optional<Clinica> clinicaOpt = consultaService.buscarClinicaPorId(consultaRequest.getClinicaId());
-            clinicaOpt.ifPresent(consulta::setClinica);
-        }
-
+        // Salvar a consulta
         Consulta novaConsulta = consultaService.salvarConsulta(consulta);
         return ResponseEntity.ok(novaConsulta);
-    }
+    }    
 
     @GetMapping("/todas")
     public ResponseEntity<List<Consulta>> getTodasConsultas() {
