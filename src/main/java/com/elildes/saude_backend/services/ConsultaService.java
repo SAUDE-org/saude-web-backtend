@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elildes.saude_backend.models.Clinica;
@@ -19,19 +18,13 @@ import com.elildes.saude_backend.repositories.ProfissionalRepository;
 @Service
 public class ConsultaService {
 
-    //@Autowired
     private ConsultaRepository consultaRepository;
 
-    //@Autowired
     private PacienteRepository pacienteRepository;
 
-    //@Autowired
     private ProfissionalRepository profissionalRepository;
 
-    //@Autowired
-    private ClinicaRepository clinicaRepository;
-
-    
+    private ClinicaRepository clinicaRepository;   
 
     public ConsultaService(ConsultaRepository consultaRepository, PacienteRepository pacienteRepository,
             ProfissionalRepository profissionalRepository, ClinicaRepository clinicaRepository) {

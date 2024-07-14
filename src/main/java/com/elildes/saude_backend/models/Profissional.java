@@ -15,15 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "profissional")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Profissional {
     
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pro_seq")
     @SequenceGenerator(name="pro_seq", sequenceName="pro_seq", allocationSize=1)
-    @Column(name = "id_profissional", nullable = false, unique = true)
-    private Long id_profissional;
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -53,12 +55,12 @@ public class Profissional {
     @OneToMany(mappedBy = "profissional")
     private List<Consulta> consultas = new ArrayList<>();
 
-    public Long getId_profissional() {
-        return id_profissional;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_profissional(Long id_profissional) {
-        this.id_profissional = id_profissional;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

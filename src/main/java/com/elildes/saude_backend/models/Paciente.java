@@ -11,14 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity(name = "paciente")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Paciente {
     
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="paciente_seq")
 	@SequenceGenerator(name="paciente_seq", sequenceName="paciente_seq", allocationSize=1)
-    @Column(name = "id_paciente", nullable = false, unique = true)
-    private Long id_paciente;
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -38,12 +41,12 @@ public class Paciente {
     @OneToMany(mappedBy = "paciente")
     private List<Consulta> consultas = new ArrayList<>();
 
-    public Long getId_paciente() {
-        return id_paciente;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_paciente(Long id_paciente) {
-        this.id_paciente = id_paciente;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
