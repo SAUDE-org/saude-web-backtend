@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "profissional")
 public class Profissional {
     
@@ -44,6 +46,7 @@ public class Profissional {
     @JoinTable(name = "profissional_especialidade",
                joinColumns = @JoinColumn(name = "profissional_id"),
                inverseJoinColumns = @JoinColumn(name = "especialidade_id"))
+    @JsonIgnore
     private List<Especialidade> especialidades;
 
     @OneToMany(mappedBy = "profissional")
