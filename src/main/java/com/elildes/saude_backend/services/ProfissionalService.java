@@ -25,16 +25,23 @@ public class ProfissionalService {
 
     // salvar profissional
     public Profissional salvarProfissional(Profissional profissional) {
+
+        if (profissional.getEspecialidades() == null) {
+            profissional.setEspecialidades(new ArrayList<>());
+        }
+
         List<Especialidade> especialidades = new ArrayList<>();
 
         for (Especialidade especialidade : profissional.getEspecialidades()) {
             Especialidade existingEspecialidade = especialidadeRepository.findByNome(especialidade.getNome());
+
             if (existingEspecialidade == null) {
                 existingEspecialidade = especialidadeRepository.save(especialidade);
             }
+            
             especialidades.add(existingEspecialidade);
         }
-        
+
         profissional.setEspecialidades(especialidades);
         return profissionalRepository.save(profissional);
     }

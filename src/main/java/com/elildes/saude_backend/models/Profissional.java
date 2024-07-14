@@ -1,5 +1,6 @@
 package com.elildes.saude_backend.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -47,7 +48,7 @@ public class Profissional {
                joinColumns = @JoinColumn(name = "profissional_id"),
                inverseJoinColumns = @JoinColumn(name = "especialidade_id"))
     @JsonIgnore
-    private List<Especialidade> especialidades;
+    private List<Especialidade> especialidades = new ArrayList<>();;
 
     @OneToMany(mappedBy = "profissional")
     private List<Consulta> consultas;

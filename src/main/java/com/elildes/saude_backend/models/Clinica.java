@@ -1,5 +1,6 @@
 package com.elildes.saude_backend.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -37,7 +38,7 @@ public class Clinica {
     private String endereco;
 
     @OneToMany(mappedBy = "clinica")
-    private List<Consulta> consultas;
+    private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId_clinica() {
         return id_clinica;
