@@ -24,22 +24,37 @@ public class Consulta {
     @Column(name = "id_consulta", nullable = false, unique = true)
     private Long id_consulta;
 
+    // @Column(name = "data")
+    // @JsonFormat(pattern = "dd/MM/yyyy")
+    // private LocalDate data;
+
     @Column(name = "data")
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate data;
 
     @Column(name = "horario")
     private LocalTime horario;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "paciente_id")
+    // private Paciente paciente;
+
+    @ManyToOne()
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "profissional_id")
+    // private Profissional profissional;
+
+    @ManyToOne()
     @JoinColumn(name = "profissional_id")
     private Profissional profissional;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "clinica_id")
+    // private Clinica clinica;
+
+    @ManyToOne()
     @JoinColumn(name = "clinica_id")
     private Clinica clinica;
 
@@ -90,7 +105,6 @@ public class Consulta {
     public void setClinica(Clinica clinica) {
         this.clinica = clinica;
     }
-
     
 
 }
