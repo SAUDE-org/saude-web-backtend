@@ -1,7 +1,6 @@
 package com.elildes.saude_backend.models;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -37,7 +36,7 @@ public class Paciente {
     private String endereco;
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Consulta> consultas = new HashSet<>();
+    private List<Consulta> consultas;
 
     public Long getId_paciente() {
         return id_paciente;
@@ -87,23 +86,14 @@ public class Paciente {
         this.endereco = endereco;
     }
 
-    public Set<Consulta> getConsultas() {
+    public List<Consulta> getConsultas() {
         return consultas;
     }
 
-    public void setConsultas(Set<Consulta> consultas) {
+    public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
-    
-    // Métodos adicionais para adicionar e remover consultas
-    public void addConsulta(Consulta consulta) {
-        consultas.add(consulta);
-        consulta.setPaciente(this);
-    }
 
-    public void removeConsulta(Consulta consulta) {
-        consultas.remove(consulta);
-        consulta.setPaciente(null);
-    }
+    
 
 }
