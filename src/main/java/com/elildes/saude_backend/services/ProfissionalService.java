@@ -15,7 +15,7 @@ import com.elildes.saude_backend.repositories.ProfissionalRepository;
 public class ProfissionalService {
 
     private ProfissionalRepository profissionalRepository;
-    private EspecialidadeRepository especialidadeRepository;    
+    private EspecialidadeRepository especialidadeRepository;
 
     public ProfissionalService(ProfissionalRepository profissionalRepository,
             EspecialidadeRepository especialidadeRepository) {

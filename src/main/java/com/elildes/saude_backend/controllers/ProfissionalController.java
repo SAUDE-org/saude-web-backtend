@@ -40,12 +40,10 @@ public class ProfissionalController {
     @GetMapping("/todos")
     public ResponseEntity<List<Profissional>> getTodosProfissionais() {
         List<Profissional> profissionais = profissionalService.buscarTodosProfissionais();
-
-        if(profissionais.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        } else {
-            return ResponseEntity.ok(profissionais);
+        if (profissionais.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+        return new ResponseEntity<>(profissionais, HttpStatus.OK);
     }
 
     @GetMapping("/cpf/{cpf}")
