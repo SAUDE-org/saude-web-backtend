@@ -15,12 +15,8 @@ import com.elildes.saude_backend.models.Paciente;
 import com.elildes.saude_backend.models.Profissional;
 import com.elildes.saude_backend.services.ConsultaService;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController

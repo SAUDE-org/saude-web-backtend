@@ -65,7 +65,5 @@ public class ConsultaService {
         return consultaRepository.findNextConsulta(today);
     }
 
-    // buscarConsultaPor: id, paciente, profissional e clínica
-    // Testar: findNextConsulta(): nãoo retorna Unique
     
 }
