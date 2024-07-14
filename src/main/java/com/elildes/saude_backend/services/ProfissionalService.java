@@ -15,15 +15,12 @@ import com.elildes.saude_backend.repositories.ProfissionalRepository;
 public class ProfissionalService {
 
     private ProfissionalRepository profissionalRepository;
+    private EspecialidadeRepository especialidadeRepository;    
 
-    private EspecialidadeRepository especialidadeRepository;
-
-    public ProfissionalService(EspecialidadeRepository especialidadeRepository) {
-        this.especialidadeRepository = especialidadeRepository;
-    }
-
-    public ProfissionalService(ProfissionalRepository profissionalRepository) {
+    public ProfissionalService(ProfissionalRepository profissionalRepository,
+            EspecialidadeRepository especialidadeRepository) {
         this.profissionalRepository = profissionalRepository;
+        this.especialidadeRepository = especialidadeRepository;
     }
 
     // salvar profissional
