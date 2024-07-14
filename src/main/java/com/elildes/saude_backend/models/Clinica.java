@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-
-
 @Entity(name = "clinica")
 public class Clinica {
     
