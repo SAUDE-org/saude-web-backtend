@@ -46,7 +46,7 @@ public class Profissional {
     @Column(name = "especialidade")
     private Especialidade especialidade;
 
-    @OneToMany(mappedBy = "profissional", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "profissional")
     private List<Consulta> consultas;
 
     public Long getId_profissional() {

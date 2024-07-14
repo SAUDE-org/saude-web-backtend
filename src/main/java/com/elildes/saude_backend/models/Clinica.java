@@ -37,7 +37,7 @@ public class Clinica {
     @Column(name = "endereco")
     private String endereco;
 
-    @OneToMany(mappedBy = "clinica", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "clinica")
     private List<Consulta> consultas;
 
     public Long getId_clinica() {
