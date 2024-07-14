@@ -10,6 +10,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -42,9 +45,11 @@ public class Profissional {
     @Column(name = "registro_pro", nullable = false, unique = true)
     private String registro_pro;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "especialidade")
-    private Especialidade especialidade;
+    @ManyToMany
+    @JoinTable(name = "profissional_especialidade",
+               joinColumns = @JoinColumn(name = "profissional_id"),
+               inverseJoinColumns = @JoinColumn(name = "especialidade_id"))
+    private List<Especialidade> especialidades;
 
     @OneToMany(mappedBy = "profissional")
     private List<Consulta> consultas;
@@ -105,12 +110,12 @@ public class Profissional {
         this.registro_pro = registro_pro;
     }
 
-    public Especialidade getEspecialidade() {
-        return especialidade;
+    public List<Especialidade> getEspecialidades() {
+        return especialidades;
     }
 
-    public void setEspecialidade(Especialidade especialidade) {
-        this.especialidade = especialidade;
+    public void setEspecialidades(List<Especialidade> especialidades) {
+        this.especialidades = especialidades;
     }
 
     public List<Consulta> getConsultas() {
@@ -120,6 +125,8 @@ public class Profissional {
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
+
+    
 
     
 
