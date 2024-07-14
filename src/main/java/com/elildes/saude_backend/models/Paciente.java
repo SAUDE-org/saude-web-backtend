@@ -36,7 +36,7 @@ public class Paciente {
     private String endereco;
 
     @OneToMany(mappedBy = "paciente")
-    private List<Consulta> consultas = new ArrayList<>();;
+    private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId_paciente() {
         return id_paciente;

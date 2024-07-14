@@ -51,7 +51,7 @@ public class Profissional {
     private List<Especialidade> especialidades = new ArrayList<>();;
 
     @OneToMany(mappedBy = "profissional")
-    private List<Consulta> consultas;
+    private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId_profissional() {
         return id_profissional;
