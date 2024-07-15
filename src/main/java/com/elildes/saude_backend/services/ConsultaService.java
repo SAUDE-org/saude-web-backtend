@@ -59,11 +59,11 @@ public class ConsultaService {
         return consultaRepository.findAll();
     }    
 
-    // buscar a consulta com a data mais próxima
-    public Optional<Consulta> findNextConsulta() {
-        LocalDate today = LocalDate.now();
-        return consultaRepository.findNextConsulta(today);
-    }
+    // // buscar a consulta com a data mais próxima
+    // public Optional<Consulta> findNextConsulta() {
+    //     LocalDate today = LocalDate.now();
+    //     return consultaRepository.findNextConsulta(today);
+    // }
 
     
 }

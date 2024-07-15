@@ -69,14 +69,14 @@ public class ConsultaController {
         }
     }
 
-    @GetMapping("/find-next")
-    public ResponseEntity<Consulta> findNextConsulta() {
-        Optional<Consulta> nextConsulta = consultaService.findNextConsulta();
-        if (nextConsulta.isPresent()) {
-            return ResponseEntity.ok(nextConsulta.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        }
-    }
+    // @GetMapping("/find-next")
+    // public ResponseEntity<Consulta> findNextConsulta() {
+    //     Optional<Consulta> nextConsulta = consultaService.findNextConsulta();
+    //     if (nextConsulta.isPresent()) {
+    //         return ResponseEntity.ok(nextConsulta.get());
+    //     } else {
+    //         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    //     }
+    // }
 
 }
