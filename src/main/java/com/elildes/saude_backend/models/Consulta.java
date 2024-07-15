@@ -20,8 +20,8 @@ public class Consulta {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="consulta_seq")
     @SequenceGenerator(name="consulta_seq", sequenceName="consulta_seq", allocationSize=1)
-    @Column(name = "id_consulta", nullable = false, unique = true)
-    private Long id_consulta;
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
 
     @Column(name = "data")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
@@ -43,12 +43,12 @@ public class Consulta {
     @JoinColumn(name = "clinica_id")
     private Clinica clinica;
 
-    public Long getId_consulta() {
-        return id_consulta;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_consulta(Long id_consulta) {
-        this.id_consulta = id_consulta;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getData() {
@@ -90,6 +90,8 @@ public class Consulta {
     public void setClinica(Clinica clinica) {
         this.clinica = clinica;
     }
+
+    
     
 
 }
