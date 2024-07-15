@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Especialidade {
     @Id
@@ -24,7 +22,6 @@ public class Especialidade {
     private String nome;
 
     @ManyToMany(mappedBy = "especialidades")
-    @JsonIgnore
     private List<Profissional> profissionais;
 
     public Long getId() {

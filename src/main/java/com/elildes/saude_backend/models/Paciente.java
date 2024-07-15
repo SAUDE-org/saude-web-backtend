@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name = "paciente")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -40,7 +39,6 @@ public class Paciente {
     private String endereco;
 
     @OneToMany(mappedBy = "paciente")
-    @JsonManagedReference
     private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId() {

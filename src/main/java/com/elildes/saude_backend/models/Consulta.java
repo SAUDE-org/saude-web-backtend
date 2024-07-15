@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity(name = "consulta")
@@ -34,17 +33,14 @@ public class Consulta {
 
     @ManyToOne()
     @JoinColumn(name = "paciente_id")
-    @JsonBackReference
     private Paciente paciente;
 
     @ManyToOne()
     @JoinColumn(name = "profissional_id")
-    @JsonBackReference
     private Profissional profissional;
 
     @ManyToOne()
     @JoinColumn(name = "clinica_id")
-    @JsonBackReference
     private Clinica clinica;
 
     public Long getId() {

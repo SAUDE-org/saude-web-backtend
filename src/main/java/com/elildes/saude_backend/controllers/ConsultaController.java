@@ -30,43 +30,43 @@ public class ConsultaController {
         this.consultaService = consultaService;
     }
 
-    // @PostMapping("/inserir")
-    // public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
-    //     try {
-    //         // Verificar se os IDs estão presentes e buscar os objetos relacionados
-    //         if (consulta.getPaciente() != null && consulta.getPaciente().getId() != null) {
-    //             Optional<Paciente> pacienteOpt = consultaService.buscarPacientePorId(consulta.getPaciente().getId());
-    //             pacienteOpt.ifPresent(consulta::setPaciente);
-    //         }
-
-    //         if (consulta.getProfissional() != null && consulta.getProfissional().getId() != null) {
-    //             Optional<Profissional> profissionalOpt = consultaService.buscarProfissionalPorId(consulta.getProfissional().getId());
-    //             profissionalOpt.ifPresent(consulta::setProfissional);
-    //         }
-
-    //         if (consulta.getClinica() != null && consulta.getClinica().getId() != null) {
-    //             Optional<Clinica> clinicaOpt = consultaService.buscarClinicaPorId(consulta.getClinica().getId());
-    //             clinicaOpt.ifPresent(consulta::setClinica);
-    //         }
-
-    //         // Salvar a consulta
-    //         Consulta novaConsulta = consultaService.salvarConsulta(consulta);
-    //         return ResponseEntity.ok(novaConsulta);
-    //     } catch (DateTimeParseException | NumberFormatException e) {
-    //         // Caso ocorra algum erro
-    //         return ResponseEntity.badRequest().build();
-    //     }
-    // } 
-
     @PostMapping("/inserir")
     public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
         try {
+            // Verificar se os IDs estão presentes e buscar os objetos relacionados
+            if (consulta.getPaciente() != null && consulta.getPaciente().getId() != null) {
+                Optional<Paciente> pacienteOpt = consultaService.buscarPacientePorId(consulta.getPaciente().getId());
+                pacienteOpt.ifPresent(consulta::setPaciente);
+            }
+
+            if (consulta.getProfissional() != null && consulta.getProfissional().getId() != null) {
+                Optional<Profissional> profissionalOpt = consultaService.buscarProfissionalPorId(consulta.getProfissional().getId());
+                profissionalOpt.ifPresent(consulta::setProfissional);
+            }
+
+            if (consulta.getClinica() != null && consulta.getClinica().getId() != null) {
+                Optional<Clinica> clinicaOpt = consultaService.buscarClinicaPorId(consulta.getClinica().getId());
+                clinicaOpt.ifPresent(consulta::setClinica);
+            }
+
+            // Salvar a consulta
             Consulta novaConsulta = consultaService.salvarConsulta(consulta);
             return ResponseEntity.ok(novaConsulta);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } catch (DateTimeParseException | NumberFormatException e) {
+            // Caso ocorra algum erro
+            return ResponseEntity.badRequest().build();
         }
-    }
+    } 
+
+    // @PostMapping("/inserir")
+    // public ResponseEntity<Consulta> inserirConsulta(@RequestBody Consulta consulta) {
+    //     try {
+    //         Consulta novaConsulta = consultaService.salvarConsulta(consulta);
+    //         return ResponseEntity.ok(novaConsulta);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    //     }
+    // }
 
     @GetMapping("/todas")
     public ResponseEntity<List<Consulta>> getTodasConsultas() {
