@@ -14,6 +14,6 @@ import com.elildes.saude_backend.models.Consulta;
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
 
     // buscar a consulta com a data mais próxima
-    @Query("SELECT c FROM consulta c WHERE c.data >= :currentDate ORDER BY c.data ASC, c.horario ASC")
-    Optional<Consulta> findNextConsulta(@Param("currentDate") LocalDate currentDate);
+    // @Query("SELECT c FROM consulta c WHERE c.data >= :currentDate ORDER BY c.data ASC, c.horario ASC")
+    // Optional<Consulta> findNextConsulta(@Param("currentDate") LocalDate currentDate);
 }

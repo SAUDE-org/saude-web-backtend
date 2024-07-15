@@ -20,19 +20,23 @@ public class ConsultaService {
 
     private ConsultaRepository consultaRepository;
 
-    private PacienteRepository pacienteRepository;
-
-    private ProfissionalRepository profissionalRepository;
-
-    private ClinicaRepository clinicaRepository;   
-
-    public ConsultaService(ConsultaRepository consultaRepository, PacienteRepository pacienteRepository,
-            ProfissionalRepository profissionalRepository, ClinicaRepository clinicaRepository) {
+    public ConsultaService(ConsultaRepository consultaRepository) {
         this.consultaRepository = consultaRepository;
-        this.pacienteRepository = pacienteRepository;
-        this.profissionalRepository = profissionalRepository;
-        this.clinicaRepository = clinicaRepository;
     }
+
+    // private PacienteRepository pacienteRepository;
+
+    // private ProfissionalRepository profissionalRepository;
+
+    // private ClinicaRepository clinicaRepository;   
+
+    // public ConsultaService(ConsultaRepository consultaRepository, PacienteRepository pacienteRepository,
+    //         ProfissionalRepository profissionalRepository, ClinicaRepository clinicaRepository) {
+    //     this.consultaRepository = consultaRepository;
+    //     this.pacienteRepository = pacienteRepository;
+    //     this.profissionalRepository = profissionalRepository;
+    //     this.clinicaRepository = clinicaRepository;
+    // }
 
     // salvar consulta
     public Consulta salvarConsulta(Consulta consulta) {
@@ -40,19 +44,19 @@ public class ConsultaService {
     }
 
     // buscar paciente por id
-    public Optional<Paciente> buscarPacientePorId(Long pacienteId) {
-        return pacienteRepository.findById(pacienteId);
-    }
+    // public Optional<Paciente> buscarPacientePorId(Long pacienteId) {
+    //     return pacienteRepository.findById(pacienteId);
+    // }
 
     // buscar profissional por id 
-    public Optional<Profissional> buscarProfissionalPorId(Long profissionalId) {
-        return profissionalRepository.findById(profissionalId);
-    }
+    // public Optional<Profissional> buscarProfissionalPorId(Long profissionalId) {
+    //     return profissionalRepository.findById(profissionalId);
+    // }
 
     // buscar clinica por id
-    public Optional<Clinica> buscarClinicaPorId(Long clinicaId) {
-        return clinicaRepository.findById(clinicaId);
-    }
+    // public Optional<Clinica> buscarClinicaPorId(Long clinicaId) {
+    //     return clinicaRepository.findById(clinicaId);
+    // }
 
     // buscar todas consultas
     public List<Consulta> buscarTodasConsultas() {
@@ -60,10 +64,10 @@ public class ConsultaService {
     }    
 
     // buscar a consulta com a data mais próxima
-    public Optional<Consulta> findNextConsulta() {
-        LocalDate today = LocalDate.now();
-        return consultaRepository.findNextConsulta(today);
-    }
+    // public Optional<Consulta> findNextConsulta() {
+    //     LocalDate today = LocalDate.now();
+    //     return consultaRepository.findNextConsulta(today);
+    // }
 
     
 }

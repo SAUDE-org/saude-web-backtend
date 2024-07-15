@@ -38,9 +38,6 @@ public class Paciente {
     @Column(name = "endereco")
     private String endereco;
 
-    @OneToMany(mappedBy = "paciente")
-    private List<Consulta> consultas = new ArrayList<>();
-
     public Long getId() {
         return id;
     }
@@ -89,13 +86,10 @@ public class Paciente {
         this.endereco = endereco;
     }
 
-    public List<Consulta> getConsultas() {
-        return consultas;
-    }
+    // @OneToMany(mappedBy = "paciente")
+    // private List<Consulta> consultas = new ArrayList<>();
 
-    public void setConsultas(List<Consulta> consultas) {
-        this.consultas = consultas;
-    }
+    
 
     
 

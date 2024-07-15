@@ -31,17 +31,17 @@ public class Consulta {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime horario;
 
-    @ManyToOne()
+    //@ManyToOne()
     @JoinColumn(name = "paciente_id")
-    private Paciente paciente;
+    private Long paciente;
 
-    @ManyToOne()
+    //@ManyToOne()
     @JoinColumn(name = "profissional_id")
-    private Profissional profissional;
+    private Long profissionalId;
 
-    @ManyToOne()
+    //@ManyToOne()
     @JoinColumn(name = "clinica_id")
-    private Clinica clinica;
+    private Long clinicaId;
 
     public Long getId() {
         return id;
@@ -67,31 +67,29 @@ public class Consulta {
         this.horario = horario;
     }
 
-    public Paciente getPaciente() {
+    public Long getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(Long paciente) {
         this.paciente = paciente;
     }
 
-    public Profissional getProfissional() {
-        return profissional;
+    public Long getProfissionalId() {
+        return profissionalId;
     }
 
-    public void setProfissional(Profissional profissional) {
-        this.profissional = profissional;
+    public void setProfissionalId(Long profissionalId) {
+        this.profissionalId = profissionalId;
     }
 
-    public Clinica getClinica() {
-        return clinica;
+    public Long getClinicaId() {
+        return clinicaId;
     }
 
-    public void setClinica(Clinica clinica) {
-        this.clinica = clinica;
+    public void setClinicaId(Long clinicaId) {
+        this.clinicaId = clinicaId;
     }
 
     
-    
-
 }

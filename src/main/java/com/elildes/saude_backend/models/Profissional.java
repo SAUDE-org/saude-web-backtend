@@ -49,10 +49,7 @@ public class Profissional {
     @JoinTable(name = "profissional_especialidade",
                joinColumns = @JoinColumn(name = "profissional_id"),
                inverseJoinColumns = @JoinColumn(name = "especialidade_id"))
-    private List<Especialidade> especialidades = new ArrayList<>();;
-
-    @OneToMany(mappedBy = "profissional")
-    private List<Consulta> consultas = new ArrayList<>();
+    private List<Especialidade> especialidades = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -116,17 +113,10 @@ public class Profissional {
 
     public void setEspecialidades(List<Especialidade> especialidades) {
         this.especialidades = especialidades;
-    }
+    };
 
-    public List<Consulta> getConsultas() {
-        return consultas;
-    }
-
-    public void setConsultas(List<Consulta> consultas) {
-        this.consultas = consultas;
-    }
-
-    
+    // @OneToMany(mappedBy = "profissional")
+    // private List<Consulta> consultas = new ArrayList<>();
 
     
 
