@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.elildes.saude_backend.models.Profissional;
+import com.elildes.saude_backend.models.User;
 
 @Repository
-public interface ProfissionalRepository extends JpaRepository<Profissional, Long> {
+public interface ProfissionalRepository extends JpaRepository<User, Long> {
 
-    Optional<Profissional> findByCpf(String cpf);
+    Optional<User> findByCpf(String cpf);
 }
