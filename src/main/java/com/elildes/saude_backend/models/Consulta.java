@@ -21,8 +21,8 @@ public class Consulta implements Serializable {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "dataTime")
-    private LocalDateTime dataTime;
+    @Column(name = "dateTime")
+    private LocalDateTime dateTime;
 
     @ManyToOne()
     @JoinColumn(name = "paciente_id")
@@ -44,12 +44,12 @@ public class Consulta implements Serializable {
         this.id = id;
     }
 
-    public LocalDateTime getDataTime() {
-        return dataTime;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDataTime(LocalDateTime dataTime) {
-        this.dataTime = dataTime;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public Paciente getPaciente() {
@@ -77,6 +77,4 @@ public class Consulta implements Serializable {
     }
 
     
-    
-
 }
