@@ -1,5 +1,6 @@
 package com.elildes.saude_backend.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +15,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "profissional")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Profissional {
+public class Profissional implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="pro_seq")
@@ -49,7 +49,6 @@ public class Profissional {
     @JoinTable(name = "profissional_especialidade",
                joinColumns = @JoinColumn(name = "profissional_id"),
                inverseJoinColumns = @JoinColumn(name = "especialidade_id"))
-    @JsonIgnore
     private List<Especialidade> especialidades = new ArrayList<>();;
 
     @OneToMany(mappedBy = "profissional")

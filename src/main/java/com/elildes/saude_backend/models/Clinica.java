@@ -1,5 +1,6 @@
 package com.elildes.saude_backend.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "clinica")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Clinica {
+public class Clinica implements Serializable {
     
     @Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="clinica_seq")
