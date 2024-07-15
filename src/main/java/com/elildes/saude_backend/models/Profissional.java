@@ -14,8 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name = "profissional")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -52,7 +52,7 @@ public class Profissional {
     private List<Especialidade> especialidades = new ArrayList<>();;
 
     @OneToMany(mappedBy = "profissional")
-    @JsonIgnore
+    @JsonManagedReference
     private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId() {
