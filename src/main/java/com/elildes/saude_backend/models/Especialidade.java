@@ -17,8 +17,8 @@ public class Especialidade {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="esp_seq")
     @SequenceGenerator(name="esp_seq", sequenceName="esp_seq", allocationSize=1)
-    @Column(name = "id_especialidade", nullable = false, unique = true)
-    private Long id_especialidade;
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
     
     @Column(name = "nome")
     private String nome;
@@ -26,12 +26,12 @@ public class Especialidade {
     @ManyToMany(mappedBy = "especialidades")
     private List<Profissional> profissionais;
 
-    public Long getId_especialidade() {
-        return id_especialidade;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_especialidade(Long id_especialidade) {
-        this.id_especialidade = id_especialidade;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
