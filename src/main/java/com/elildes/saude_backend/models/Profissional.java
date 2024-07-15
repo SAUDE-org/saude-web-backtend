@@ -49,7 +49,6 @@ public class Profissional {
     @JoinTable(name = "profissional_especialidade",
                joinColumns = @JoinColumn(name = "profissional_id"),
                inverseJoinColumns = @JoinColumn(name = "especialidade_id"))
-    @JsonIgnore
     private List<Especialidade> especialidades = new ArrayList<>();;
 
     @OneToMany(mappedBy = "profissional")
