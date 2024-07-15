@@ -52,6 +52,7 @@ public class Profissional {
     private List<Especialidade> especialidades = new ArrayList<>();;
 
     @OneToMany(mappedBy = "profissional")
+    @JsonIgnore
     private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId() {
@@ -125,9 +126,5 @@ public class Profissional {
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
-
-    
-
-    
 
 }

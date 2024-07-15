@@ -24,6 +24,7 @@ public class Especialidade {
     private String nome;
 
     @ManyToMany(mappedBy = "especialidades")
+    @JsonIgnore
     private List<Profissional> profissionais;
 
     public Long getId() {
@@ -48,8 +49,6 @@ public class Especialidade {
 
     public void setProfissionais(List<Profissional> profissionais) {
         this.profissionais = profissionais;
-    }
-
-    
+    }   
     
 }
