@@ -1,7 +1,5 @@
 package com.elildes.saude_backend.configs;
 
-import java.text.SimpleDateFormat;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +16,7 @@ public class JacksonConfig {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        mapper.registerModule(new JavaTimeModule());
         return mapper;
     }
 }
