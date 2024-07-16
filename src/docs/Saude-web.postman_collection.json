@@ -106,7 +106,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/profissional/cpf/66666666666",
+					"raw": "http://localhost:8080/profissional/cpf/55555555555",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -115,7 +115,7 @@
 					"path": [
 						"profissional",
 						"cpf",
-						"66666666666"
+						"55555555555"
 					]
 				}
 			},
@@ -246,7 +246,14 @@
 			"name": "Paciente Inserir",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"cpf\": \"88888888888\",\r\n    \"email\": \"joao@email.com\",\r\n    \"endereco\": \"R. Pe Anchieta, Capim Macio, Natal, RN\",\r\n    \"nome\": \"João Maria de José\",\r\n    \"telefone\": \"(84)88888-7777\"\r\n}\r\n\r\n/*\r\n{\r\n    \"cpf\": \"99999999999\",\r\n    \"email\": \"elildes@email.com\",\r\n    \"endereco\": \"R. Seridó, Lagoa Nova, Natal, RN\",\r\n    \"nome\": \"Elildes F Santos\",\r\n    \"telefone\": \"(84)66666-5555\"\r\n}\r\n*/\r\n/*\r\n{\r\n    \"cpf\": \"55555555555\",\r\n    \"email\": \"pedro@email.com\",\r\n    \"endereco\": \"R. Silva, Jacumâ, Natal, RN\",\r\n    \"nome\": \"Pedro Santos\",\r\n    \"telefone\": \"(84)99555-3333\"\r\n}\r\n*/",
@@ -275,10 +282,17 @@
 			"name": "Profissional Inserir",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Carla Morais Santos\",\r\n    \"cpf\": \"55555555555\",\r\n    \"email\": \"carla@gmail.com\",\r\n    \"telefone\": \"(84)98500-22222\",\r\n    \"endereco\": \"R. Augusta, 654, Alecrim, Natal, RN\",\r\n    \"registro_pro\": \"CRF/RN-45453\",\r\n    \"especialidades\": [\r\n        { \"nome\": \"Enfermagem\" }\r\n    ]\r\n}\r\n\r\n/*\r\n{\r\n    \"nome\": \"Ana Maria Braga\",\r\n    \"cpf\": \"66666666666\",\r\n    \"email\": \"ana@gmail.com\",\r\n    \"telefone\": \"(84)99999-8888\",\r\n    \"endereco\": \"R. Alta, 45, Alecrim, Natal, RN\",\r\n    \"registro_pro\": \"CRN6-99990\",\r\n    \"especialidades\": [\r\n        { \"nome\": \"Nutricionista\" }\r\n    ]\r\n}\r\n*/\r\n\r\n/*\r\n{\r\n    \"nome\": \"Elena Radol F Santos\",\r\n    \"cpf\": \"77777777777\",\r\n    \"email\": \"elena@gmail.com\",\r\n    \"telefone\": \"(84)77777-6666\",\r\n    \"endereco\": \"R. Bela Vista, 1012, Cidade Alta, Natal, RN\",\r\n    \"registro_pro\": \"CRP/RN-88880\",\r\n    \"especialidades\": [\r\n        { \"nome\": \"Psicologia\" }\r\n    ]\r\n}\r\n*/",
+					"raw": "/*\r\n{\r\n    \"nome\": \"Ana Maria Braga\",\r\n    \"cpf\": \"66666666666\",\r\n    \"email\": \"ana@gmail.com\",\r\n    \"telefone\": \"(84)99999-8888\",\r\n    \"endereco\": \"R. Alta, 45, Alecrim, Natal, RN\",\r\n    \"registro_pro\": \"CRN6-99990\",\r\n    \"especialidades\": [\r\n        { \"nome\": \"Nutricionista\" }\r\n    ]\r\n}\r\n*/\r\n\r\n{\r\n    \"nome\": \"Carla Morais Santos\",\r\n    \"cpf\": \"55555555555\",\r\n    \"email\": \"carla@gmail.com\",\r\n    \"telefone\": \"(84)98500-22222\",\r\n    \"endereco\": \"R. Augusta, 654, Alecrim, Natal, RN\",\r\n    \"registro_pro\": \"CRF/RN-45453\",\r\n    \"especialidades\": [\r\n        { \"nome\": \"Enfermagem\" }\r\n    ]\r\n}\r\n\r\n\r\n/*\r\n{\r\n    \"nome\": \"Elena Radol F Santos\",\r\n    \"cpf\": \"77777777777\",\r\n    \"email\": \"elena@gmail.com\",\r\n    \"telefone\": \"(84)77777-6666\",\r\n    \"endereco\": \"R. Bela Vista, 1012, Cidade Alta, Natal, RN\",\r\n    \"registro_pro\": \"CRP/RN-88880\",\r\n    \"especialidades\": [\r\n        { \"nome\": \"Psicologia\" }\r\n    ]\r\n}\r\n*/",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -304,7 +318,14 @@
 			"name": "Clinica Inserir",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"cnpj\": \"99999999000199\",\r\n    \"email\": \"hospital@gmail.com\",\r\n    \"endereco\": \"Av. Ayrton Senna, 34 - Capim Macio\",\r\n    \"nome\": \"Hospital Ponta Negra\",\r\n    \"telefone\": \"(84)77777-6666\"\r\n}\r\n\r\n/*\r\n{\r\n    \"cnpj\": \"88888888000188\",\r\n    \"email\": \"psi@gmail.com\",\r\n    \"endereco\": \"R. Pedro Cardoso, 478 - Neópolis\",\r\n    \"nome\": \"Clínica Psi\",\r\n    \"telefone\": \"(84)99222-2222\"\r\n}\r\n*/",
@@ -333,10 +354,16 @@
 			"name": "Consulta Inserir",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": \"30/09/2024\",\r\n    \"horario\": \"14:00\",\r\n    \"paciente\": {\r\n        \"id\": 1\r\n    },\r\n    \"profissional\": {\r\n        \"id\": 1\r\n    },\r\n    \"clinica\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n\r\n/*\r\n{\r\n    \"data\": \"22/08/2024\",\r\n    \"horario\": \"11:30\",\r\n    \"paciente\": {\r\n        \"id\": 1\r\n    },\r\n    \"profissional\": {\r\n        \"id\": 1\r\n    },\r\n    \"clinica\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n*/",
+					"raw": "{\r\n    \"data\": \"24/08/2024\",\r\n    \"horario\": \"11:30\",\r\n    \"paciente\": {\r\n        \"paciente_id\": 1\r\n    },\r\n    \"profissional\": {\r\n        \"profissional_id\": 1\r\n    },\r\n    \"clinica\": {\r\n        \"clinica_id\": 1\r\n    }\r\n}\r\n\r\n/*\r\n{\r\n    \"data\": \"22/08/2024\",\r\n    \"horario\": \"11:30\",\r\n    \"paciente\": {\r\n        \"id\": 1\r\n    },\r\n    \"profissional\": {\r\n        \"id\": 1\r\n    },\r\n    \"clinica\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n*/",
 					"options": {
 						"raw": {
 							"language": "json"
